@@ -15,7 +15,7 @@ const dateFilter = require("./helper/filters/dateFilter.js").dateFilter;
 const formatProcesses = require("./services/formatProcessesService.js").formatProcesses;
 
 // Importação de variáveis globais
-const { BASEURL, CLASS, CLIENT, DATE } = require("./config/params.js");
+import { BASEURL, CLASS, CLIENT, DATE } from "./config/params";
 
 async function robot() {
   // Abertura do navegador
