@@ -1,5 +1,5 @@
 // Importação de bibliotecas
-import { launch } from 'puppeteer';
+import Puppeteer from 'puppeteer';
 
 // Importação de funções
 const auth = require("./services/authService.js").auth;
@@ -19,7 +19,7 @@ const { BASEURL, CLASS, CLIENT, DATE } = require("./config/params.js");
 
 async function robot() {
   // Abertura do navegador
-  const browser = await launch({ headless: true });
+  const browser = await Puppeteer.launch({ headless: true });
 
   // Autenticação
   await auth(browser, BASEURL);
