@@ -1,9 +1,9 @@
 // Função que formata os processos para serem retornados
 function formatProcesses(processesByClassAndDate, CLIENT) {
   // Armazena os processos formatados
-  const formattedProcesses = [];
+  const formattedProcesses: any[] = [];
 
-  for (i = 0; i < processesByClassAndDate.length; i++) {
+  for (let i = 0; i < processesByClassAndDate.length; i++) {
     // Cria o objeto (processo) contendo as informações do processo
     const formattedProcess = {
       id: processesByClassAndDate[i][0][0],
@@ -20,4 +20,4 @@ function formatProcesses(processesByClassAndDate, CLIENT) {
 }
 
 // Exportação da função
-module.exports = { formatProcesses: formatProcesses };
+export default formatProcesses;
