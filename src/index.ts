@@ -7,7 +7,7 @@ import auth from './services/authService';
 import extract from './services/extractService';
 import extractDate from './services/extractDateService';
 
-const processGen = require("./helper/generators/processGen.js").processGen;
+import processGen from './helper/generators/processGen';
 
 const classFilter = require("./helper/filters/classFilter.js").classFilter;
 const dateFilter = require("./helper/filters/dateFilter.js").dateFilter;

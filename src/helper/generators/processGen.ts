@@ -1,9 +1,9 @@
 // Função que gera um vetor para cada processo contendo suas informações
 function processGen(ids, classes) {
   // Vetor que armazena os processos
-  const processes = [];
+  const processes: any[] = [];
 
-  for (i = 0; i < ids.length; i++) {
+  for (let i = 0; i < ids.length; i++) {
     // Armazena o id e a classe do processo
     const processId = ids[i];
     const processClass = classes[i];
@@ -19,4 +19,4 @@ function processGen(ids, classes) {
 }
 
 // Exportação da função
-module.exports = { processGen: processGen };
+export default processGen;
