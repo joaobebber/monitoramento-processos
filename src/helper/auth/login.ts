@@ -11,4 +11,4 @@ async function login(page, cpf, password) {
 }
 
 // Exportação da função
-module.exports = { login: login };
+export default login;

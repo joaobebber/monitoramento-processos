@@ -1,5 +1,5 @@
 // Importação de funções
-const login = require("../helper/auth/login.js").login;
+import login from "../helper/auth/login";
 
 // Importação de variáveis globais
 const { CPF, PASSWORD } = require("../config/auth.js");
