@@ -25,10 +25,10 @@ async function extract(browser, BASEURL, CLIENT) {
   // Fecha a aba
   await extractPage.close();
 
-  const v1 = [];
-  const v2 = [];
+  const v1: any[] = [];
+  const v2: any[] = [];
 
-  for (i = 0; i < (numberOfPages - 1); i++) {
+  for (let i = 0; i < (numberOfPages - 1); i++) {
     // Cria uma nova aba
     const extractPage = await browser.newPage();
 
@@ -55,7 +55,7 @@ async function extract(browser, BASEURL, CLIENT) {
 
 // Função que insere o vetor 2 no vetor 1
 function append(array1, array2) {
-  for (i = 0; i < array2.length; i++) {
+  for (let i = 0; i < array2.length; i++) {
     array1.push(array2[i]);
   }
 }
@@ -114,4 +114,4 @@ function updateArrays(numberOfPages, ids, classes, v1, v2) {
 }
 
 // Exportação da função
-module.exports = { extract: extract };
+export default extract;

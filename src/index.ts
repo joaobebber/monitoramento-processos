@@ -4,8 +4,8 @@ import Puppeteer from 'puppeteer';
 // Importação de funções
 import auth from './services/authService';
 
-const extract = require("./services/extractService.js").extract;
-const extractDate = require("./services/extractDateService.js").extractDate;
+import extract from './services/extractService';
+import extractDate from './services/extractDateService';
 
 const processGen = require("./helper/generators/processGen.js").processGen;
 

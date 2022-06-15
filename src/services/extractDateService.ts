@@ -3,7 +3,7 @@ const extractProcessDate = require("../helper/extracts/extractProcessDate.js").e
 
 // Função que realiza a extração da data da última modificação dos processos
 async function extractDate(browser, BASEURL, processesByClass) {
-  for (i = 0; i < processesByClass.length; i++) {
+  for (let i = 0; i < processesByClass.length; i++) {
     // Cria uma nova aba
     const processPage = await browser.newPage();
 
@@ -22,4 +22,4 @@ async function extractDate(browser, BASEURL, processesByClass) {
 }
 
 // Exportação da função
-module.exports = { extractDate: extractDate };
+export default extractDate;
