@@ -2,7 +2,7 @@
 import Puppeteer from 'puppeteer';
 
 // Importação de funções
-const auth = require("./services/authService.js").auth;
+import auth from './services/authService';
 
 const extract = require("./services/extractService.js").extract;
 const extractDate = require("./services/extractDateService.js").extractDate;
