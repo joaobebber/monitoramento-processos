@@ -23,4 +23,4 @@ async function auth(browser, BASEURL) {
 }
 
 // Exportação da função
-module.exports = { auth: auth };
+export default auth;
