@@ -1,0 +1,6 @@
+# node.js
+node_modules
+
+# config
+src/config/auth.js
+src/config/params.js

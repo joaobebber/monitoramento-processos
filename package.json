@@ -1,0 +1,16 @@
+{
+  "name": "monitoramento-processos",
+  "version": "1.0.0",
+  "description": "Robô de monitoramento processual pelo site do Tribunal de Justiça de São Paulo.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": [],
+  "author": "João Paulo Gazola Bebber",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^14.2.1",
+    "readline": "^1.3.0"
+  }
+}
