@@ -1,12 +1,12 @@
 // Função que filtra os processos por data
 async function dateFilter(date, processesByClass) {
   // Vetor que armazena os processos desejados
-  const processesByClassAndDate = [];
+  const processesByClassAndDate: any[] = [];
 
   // Desconstrução da data escolhida em: dia, mês, ano
   const [day, month, year] = date.split('/');
 
-  for (i = 0; i < processesByClass.length; i++) {
+  for (let i = 0; i < processesByClass.length; i++) {
     // Indica se a data do processo é posterior ou não à data escolhida
     let validDate = false;
 
@@ -47,4 +47,4 @@ async function dateFilter(date, processesByClass) {
 }
 
 // Exportação da função
-module.exports = { dateFilter: dateFilter };
+export default dateFilter;

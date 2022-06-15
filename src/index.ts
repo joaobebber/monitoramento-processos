@@ -9,10 +9,10 @@ import extractDate from './services/extractDateService';
 
 import processGen from './helper/generators/processGen';
 
-const classFilter = require("./helper/filters/classFilter.js").classFilter;
-const dateFilter = require("./helper/filters/dateFilter.js").dateFilter;
+import classFilter from './helper/filters/classFilter';
+import dateFilter from './helper/filters/dateFilter';
 
-const formatProcesses = require("./services/formatProcessesService.js").formatProcesses;
+import formatProcesses from './services/formatProcessesService';
 
 // Importação de variáveis globais
 import { BASEURL, CLASS, CLIENT, DATE } from "./config/params";
@@ -36,18 +36,19 @@ async function robot() {
   // Extração da data da última modificação dos processos
   await extractDate(browser, BASEURL, processesByClass);
 
-  // Filtra os processos pela data desejada
+  // Filtragem dos processos pela data desejada
   const processesByClassAndDate = await dateFilter(DATE, processesByClass);
 
-  // Estrutura os processos filtrados em objetos
+  // Estruturação dos processos filtrados em objetos
   const formattedProcesses = formatProcesses(processesByClassAndDate, CLIENT);
 
-  // Imprime no terminal os processos a serem analisados
+  // Impressão no terminal dos processos a serem analisados
   console.log({
     title: 'Processos a serem analisados',
     processes: formattedProcesses
   });
 
+  // Fechamento do navegador
   await browser.close();
 }
 
