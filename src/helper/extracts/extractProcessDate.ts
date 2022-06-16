@@ -14,4 +14,4 @@ async function extractProcessDate(processPage) {
 }
 
 // Exportação da função
-module.exports = { extractProcessDate: extractProcessDate };
+export default extractProcessDate;

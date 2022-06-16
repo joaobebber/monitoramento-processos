@@ -1,5 +1,5 @@
 // Importação de funções
-const extractProcessDate = require("../helper/extracts/extractProcessDate.js").extractProcessDate;
+import extractProcessDate from '../helper/extracts/extractProcessDate';
 
 // Função que realiza a extração da data da última modificação dos processos
 async function extractDate(browser, BASEURL, processesByClass) {
