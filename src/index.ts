@@ -1,6 +1,9 @@
 // Importação de bibliotecas
 import Puppeteer from 'puppeteer';
 
+// Importação de variáveis globais
+import { BASEURL, CLASS, CLIENT, DATE } from "./config/params";
+
 // Importação de funções
 import auth from './services/authService';
 
@@ -13,9 +16,6 @@ import classFilter from './helper/filters/classFilter';
 import dateFilter from './helper/filters/dateFilter';
 
 import formatProcesses from './services/formatProcessesService';
-
-// Importação de variáveis globais
-import { BASEURL, CLASS, CLIENT, DATE } from "./config/params";
 
 async function robot() {
   // Abertura do navegador
