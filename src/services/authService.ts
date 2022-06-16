@@ -2,7 +2,7 @@
 import login from "../helper/auth/login";
 
 // Importação de variáveis globais
-const { CPF, PASSWORD } = require("../config/auth.js");
+import { CPF, PASSWORD } from '../config/auth';
 
 // Função que realiza a autenticação (login)
 async function auth(browser, BASEURL) {
