@@ -1,9 +1,12 @@
+// Importação dos tipos das dependências
+import type { Page } from "puppeteer";
+
 // Função que obtém o id dos processos
-async function extractProcessId(extractPage) {
+async function extractProcessId(extractPage: Page) {
   const processesId = await extractPage.evaluate(() => {
     // Vetores que armazenam o id e o href (link) dos elementos
-    const elementsId: any[] = [];
-    const elementsHRef: any[] = [];
+    const elementsId: string[] = [];
+    const elementsHRef: (string | null)[] = [];
 
     // Obtém os elementos de classe 'linkProcesso'
     let elements = $('.linkProcesso').toArray();
@@ -15,7 +18,7 @@ async function extractProcessId(extractPage) {
     }
 
     // Vetor que armazena o vetor [id, link] dos elementos
-    const ids: any[] = [];
+    const ids: (string | null)[][] = [];
 
     // Insere o vetor [id, link] dos elementos no vetor ids
     for (let i = 0; i < elements.length; i++) {
