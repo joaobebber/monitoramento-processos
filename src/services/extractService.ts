@@ -1,7 +1,7 @@
 // Importação de funções
-const { extractNumberOfPages } = require("../helper/extracts/extractNumberOfPages");
-const { extractProcessId } = require("../helper/extracts/extractProcessId");
-const { extractProcessClass } = require("../helper/extracts/extractProcessClass");
+import extractNumberOfPages from '../helper/extracts/extractNumberOfPages';
+import extractProcessId from '../helper/extracts/extractProcessId';
+import extractProcessClass from '../helper/extracts/extractProcessClass';
 const { formatClient } = require("./formatClientService");
 
 // Função que realiza a extração dos dados (id e classe) dos processos

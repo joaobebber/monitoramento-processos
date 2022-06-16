@@ -14,4 +14,4 @@ async function extractNumberOfPages(extractPage) {
 }
 
 // Exportação da função
-module.exports = { extractNumberOfPages: extractNumberOfPages };
+export default extractNumberOfPages;

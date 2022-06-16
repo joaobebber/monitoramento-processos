@@ -2,13 +2,13 @@
 async function extractProcessClass(extractPage) {
   const processesClass = await extractPage.evaluate(() => {
     // Vetor que armazena o texto (classe) dos elementos
-    const classes = [];
+    const classes: any[] = [];
 
     // Obtém os elementos de classe 'classeProcesso'
     let elements = $('.classeProcesso').toArray();
 
     // Insere o texto (classe) dos elementos no vetor
-    for (i = 0; i < elements.length; i++) {
+    for (let i = 0; i < elements.length; i++) {
       classes.push(elements[i].innerText);
     }
 
@@ -19,4 +19,4 @@ async function extractProcessClass(extractPage) {
 }
 
 // Exportação da função
-module.exports = { extractProcessClass: extractProcessClass };
+export default extractProcessClass;
