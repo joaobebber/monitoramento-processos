@@ -1,6 +1,9 @@
 // Importação dos tipos das dependências
 import type { Browser } from 'puppeteer';
 
+// Importação dos tipos locais
+import type { IProcess } from '../types/IProcess';
+
 // Importação de funções
 import extractProcessDate from '../helpers/extracts/extractProcessDate';
 
@@ -8,20 +11,20 @@ import extractProcessDate from '../helpers/extracts/extractProcessDate';
 async function extractDate(
   browser: Browser,
   BASEURL: string,
-  processesByClass: (string | (string | null)[])[][]
+  processesByClass: IProcess[]
 ) {
   for (let i = 0; i < processesByClass.length; i++) {
     // Cria uma nova aba
     const processPage = await browser.newPage();
 
     // Entra na página de extração
-    await processPage.goto(BASEURL + processesByClass[i][0][1]);
+    await processPage.goto(BASEURL + processesByClass[i].href);
 
     // Extrai a data da última modificação dos processos
     const processDate = await extractProcessDate(processPage);
 
     // Insere a data no vetor do processo
-    processesByClass[i].push(processDate);
+    processesByClass[i].date = processDate;
 
     // Fecha a aba
     await processPage.close();

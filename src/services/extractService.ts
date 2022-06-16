@@ -1,6 +1,9 @@
 // Importação dos tipos das dependências
 import type { Browser } from 'puppeteer';
 
+// Importação dos tipos locais
+import type { IProcessId } from 'src/types/IProcessId';
+
 // Importação de funções
 import extractNumberOfPages from '../helpers/extracts/extractNumberOfPages';
 import extractProcessId from '../helpers/extracts/extractProcessId';
@@ -14,7 +17,7 @@ async function extract(browser: Browser, BASEURL: string, CLIENT: string) {
   const extractPage = await browser.newPage();
 
   // Entra na página de extração
-  const formattedClient = await formatClient(CLIENT);
+  const formattedClient = formatClient(CLIENT);
   await extractPage.goto(BASEURL + `/cpopg/search.do?conversationId=&cbPesquisa=NMPARTE&dadosConsulta.valorConsulta=${formattedClient}&dadosConsulta.localPesquisa.cdLocal=-1`);
 
   // Extrai o número de páginas de processos
@@ -29,7 +32,7 @@ async function extract(browser: Browser, BASEURL: string, CLIENT: string) {
   // Fecha a aba
   await extractPage.close();
 
-  const ids_temp_array: (string | null)[][][] = [];
+  const ids_temp_array: IProcessId[][] = [];
   const classes_temp_array: string[][] = [];
 
   for (let i = 0; i < (numberOfPages - 1); i++) {
@@ -67,9 +70,9 @@ function append(array1: any[], array2: any[]) {
 // Função que atualiza os vetores dos dados
 function updateArrays(
   numberOfPages: number,
-  ids: (string | null)[][],
+  ids: IProcessId[],
   classes: string[],
-  ids_temp_array: (string | null)[][][],
+  ids_temp_array: IProcessId[][],
   classes_temp_array: string[][]
 ) {
   if (numberOfPages == 2) {

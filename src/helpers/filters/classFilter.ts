@@ -1,14 +1,17 @@
+// Importação dos tipos locais
+import type { IProcess } from '../../types/IProcess';
+
 // Função que filtra os processos por classe
 async function classFilter(
   processClass: string,
-  processes: (string | (string | null)[])[][]
+  processes: IProcess[]
 ) {
   // Vetor que armazena os processos desejados
-  const processesByClass: (string | (string | null)[])[][] = [];
+  const processesByClass: IProcess[] = [];
 
   // Insere no vetor apenas os processos com a classe escolhida
   for (let i = 0; i < processes.length; i++) {
-    if (processes[i][1] == processClass) processesByClass.push(processes[i]);
+    if (processes[i].class == processClass) processesByClass.push(processes[i]);
   }
   
   return processesByClass;

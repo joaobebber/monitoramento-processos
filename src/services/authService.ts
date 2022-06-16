@@ -5,7 +5,7 @@ import type { Browser } from "puppeteer";
 import login from "../helpers/auth/login";
 
 // Importação de variáveis globais
-import { CPF, PASSWORD } from '../config/auth';
+import { authData } from '../config/auth';
 
 // Função que realiza a autenticação (login)
 async function auth(browser: Browser, BASEURL: string) {
@@ -16,7 +16,7 @@ async function auth(browser: Browser, BASEURL: string) {
   await loginPage.goto(BASEURL + '/cpopg/open.do?gateway=true');
 
   // Preenche as informações da autenticação
-  await login(loginPage, CPF, PASSWORD);
+  await login(loginPage, authData.cpf, authData.password);
 
   // Espera 4 segundos
   await loginPage.waitForTimeout(4000);

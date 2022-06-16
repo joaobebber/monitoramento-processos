@@ -1,7 +1,13 @@
+// Importação dos tipos locais
+import type { IProcess } from '../../types/IProcess';
+
 // Função que filtra os processos por data
-async function dateFilter(date, processesByClass) {
+async function dateFilter(
+  date: string,
+  processesByClass: IProcess[]
+) {
   // Vetor que armazena os processos desejados
-  const processesByClassAndDate: any[] = [];
+  const processesByClassAndDate: IProcess[] = [];
 
   // Desconstrução da data escolhida em: dia, mês, ano
   const [day, month, year] = date.split('/');
@@ -11,7 +17,7 @@ async function dateFilter(date, processesByClass) {
     let validDate = false;
 
     // Armazena a data do processo
-    const processDate = processesByClass[i][2];
+    const processDate = processesByClass[i].date;
 
     // Descontrução da data do processo em: dia, mês, ano
     const [dayP, monthP, yearP] = processDate.split('/');
