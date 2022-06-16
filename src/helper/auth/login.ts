@@ -1,5 +1,8 @@
+// Importação dos tipos das dependências
+import type { Page } from "puppeteer";
+
 // Função que preenche os dados de autenticação (login)
-async function login(page, cpf, password) {
+async function login(page: Page, cpf: string, password: string) {
   // Insere o CPF no input
   await page.type('#usernameForm', cpf);
 

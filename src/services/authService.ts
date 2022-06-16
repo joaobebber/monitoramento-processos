@@ -1,3 +1,6 @@
+// Importação dos tipos das dependências
+import type { Browser } from "puppeteer";
+
 // Importação de funções
 import login from "../helper/auth/login";
 
@@ -5,7 +8,7 @@ import login from "../helper/auth/login";
 import { CPF, PASSWORD } from '../config/auth';
 
 // Função que realiza a autenticação (login)
-async function auth(browser, BASEURL) {
+async function auth(browser: Browser, BASEURL: string) {
   // Cria uma nova aba
   const loginPage = await browser.newPage();
 
