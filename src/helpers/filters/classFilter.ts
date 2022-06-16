@@ -1,7 +1,10 @@
 // Função que filtra os processos por classe
-async function classFilter(processClass, processes) {
+async function classFilter(
+  processClass: string,
+  processes: (string | (string | null)[])[][]
+) {
   // Vetor que armazena os processos desejados
-  const processesByClass: any[] = [];
+  const processesByClass: (string | (string | null)[])[][] = [];
 
   // Insere no vetor apenas os processos com a classe escolhida
   for (let i = 0; i < processes.length; i++) {

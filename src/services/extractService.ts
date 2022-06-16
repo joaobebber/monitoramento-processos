@@ -1,12 +1,15 @@
+// Importação dos tipos das dependências
+import type { Browser } from 'puppeteer';
+
 // Importação de funções
-import extractNumberOfPages from '../helper/extracts/extractNumberOfPages';
-import extractProcessId from '../helper/extracts/extractProcessId';
-import extractProcessClass from '../helper/extracts/extractProcessClass';
+import extractNumberOfPages from '../helpers/extracts/extractNumberOfPages';
+import extractProcessId from '../helpers/extracts/extractProcessId';
+import extractProcessClass from '../helpers/extracts/extractProcessClass';
 
 import formatClient from './formatClientService';
 
 // Função que realiza a extração dos dados (id e classe) dos processos
-async function extract(browser, BASEURL, CLIENT) {
+async function extract(browser: Browser, BASEURL: string, CLIENT: string) {
   // Cria uma nova aba
   const extractPage = await browser.newPage();
 
@@ -26,8 +29,8 @@ async function extract(browser, BASEURL, CLIENT) {
   // Fecha a aba
   await extractPage.close();
 
-  const v1: any[] = [];
-  const v2: any[] = [];
+  const ids_temp_array: (string | null)[][][] = [];
+  const classes_temp_array: string[][] = [];
 
   for (let i = 0; i < (numberOfPages - 1); i++) {
     // Cria uma nova aba
@@ -38,79 +41,85 @@ async function extract(browser, BASEURL, CLIENT) {
 
     // Extrai o id dos processos
     const ids_temp = await extractProcessId(extractPage);
-    v1.push(ids_temp);
+    ids_temp_array.push(ids_temp);
     
     // Extrai a classe dos processos
     const classes_temp = await extractProcessClass(extractPage);
-    v2.push(classes_temp);
+    classes_temp_array.push(classes_temp);
 
     // Fecha a aba
     await extractPage.close();
   }
 
   // Atualiza os vetores de dados
-  updateArrays(numberOfPages, ids, classes, v1, v2);
+  updateArrays(numberOfPages, ids, classes, ids_temp_array, classes_temp_array);
 
   return { ids, classes };
 }
 
 // Função que insere o vetor 2 no vetor 1
-function append(array1, array2) {
+function append(array1: any[], array2: any[]) {
   for (let i = 0; i < array2.length; i++) {
     array1.push(array2[i]);
   }
 }
 
 // Função que atualiza os vetores dos dados
-function updateArrays(numberOfPages, ids, classes, v1, v2) {
+function updateArrays(
+  numberOfPages: number,
+  ids: (string | null)[][],
+  classes: string[],
+  ids_temp_array: (string | null)[][][],
+  classes_temp_array: string[][]
+) {
   if (numberOfPages == 2) {
-    append(ids, v1[0]);
-    append(classes, v2[0]);
+    append(ids, ids_temp_array[0]);
+    append(classes, classes_temp_array[0]);
   } else if (numberOfPages == 3) {
-    append(ids, v1[0]);
-    append(ids, v1[1]);
-    append(classes, v2[0]);
-    append(classes, v2[1]);
+    append(ids, ids_temp_array[0]);
+    append(ids, ids_temp_array[1]);
+    append(classes, classes_temp_array[0]);
+    append(classes, classes_temp_array[1]);
   } else if (numberOfPages == 4) {
-    append(ids, v1[0]);
-    append(ids, v1[1]);
-    append(ids, v1[2]);
-    append(classes, v2[0]);
-    append(classes, v2[1]);
-    append(classes, v2[2]);
+    append(ids, ids_temp_array[0]);
+    append(ids, ids_temp_array[1]);
+    append(ids, ids_temp_array[2]);
+    append(classes, classes_temp_array[0]);
+    append(classes, classes_temp_array[1]);
+    append(classes, classes_temp_array[2]);
   } else if (numberOfPages == 5) {
-    append(ids, v1[0]);
-    append(ids, v1[1]);
-    append(ids, v1[2]);
-    append(ids, v1[3]);
-    append(classes, v2[0]);
-    append(classes, v2[1]);
-    append(classes, v2[2]);
-    append(classes, v2[3]);
+    append(ids, ids_temp_array[0]);
+    append(ids, ids_temp_array[1]);
+    append(ids, ids_temp_array[2]);
+    append(ids, ids_temp_array[3]);
+    append(classes, classes_temp_array[0]);
+    append(classes, classes_temp_array[1]);
+    append(classes, classes_temp_array[2]);
+    append(classes, classes_temp_array[3]);
   } else if (numberOfPages == 6) {
-    append(ids, v1[0]);
-    append(ids, v1[1]);
-    append(ids, v1[2]);
-    append(ids, v1[3]);
-    append(ids, v1[4]);
-    append(classes, v2[0]);
-    append(classes, v2[1]);
-    append(classes, v2[2]);
-    append(classes, v2[3]);
-    append(classes, v2[4]);
+    append(ids, ids_temp_array[0]);
+    append(ids, ids_temp_array[1]);
+    append(ids, ids_temp_array[2]);
+    append(ids, ids_temp_array[3]);
+    append(ids, ids_temp_array[4]);
+    append(classes, classes_temp_array[0]);
+    append(classes, classes_temp_array[1]);
+    append(classes, classes_temp_array[2]);
+    append(classes, classes_temp_array[3]);
+    append(classes, classes_temp_array[4]);
   } else if (numberOfPages == 7) {
-    append(ids, v1[0]);
-    append(ids, v1[1]);
-    append(ids, v1[2]);
-    append(ids, v1[3]);
-    append(ids, v1[4]);
-    append(ids, v1[5]);
-    append(classes, v2[0]);
-    append(classes, v2[1]);
-    append(classes, v2[2]);
-    append(classes, v2[3]);
-    append(classes, v2[4]);
-    append(classes, v2[5]);
+    append(ids, ids_temp_array[0]);
+    append(ids, ids_temp_array[1]);
+    append(ids, ids_temp_array[2]);
+    append(ids, ids_temp_array[3]);
+    append(ids, ids_temp_array[4]);
+    append(ids, ids_temp_array[5]);
+    append(classes, classes_temp_array[0]);
+    append(classes, classes_temp_array[1]);
+    append(classes, classes_temp_array[2]);
+    append(classes, classes_temp_array[3]);
+    append(classes, classes_temp_array[4]);
+    append(classes, classes_temp_array[5]);
   }
 }
 

@@ -1,5 +1,8 @@
+// Importação dos tipos das dependências
+import type { Page } from "puppeteer";
+
 // Função que obtém a data dos processos
-async function extractProcessDate(processPage) {
+async function extractProcessDate(processPage: Page) {
   const processDate = await processPage.evaluate(() => {
     // Obtém os elementos de classe 'dataMovimentacao'
     let elements = $('.dataMovimentacao').toArray();

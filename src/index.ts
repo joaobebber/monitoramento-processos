@@ -5,16 +5,13 @@ import Puppeteer from 'puppeteer';
 import { BASEURL, CLASS, CLIENT, DATE } from "./config/params";
 
 // Importação de funções
-import auth from './services/authService';
+import processGen from './helpers/generators/processGen';
+import classFilter from './helpers/filters/classFilter';
+import dateFilter from './helpers/filters/dateFilter';
 
+import auth from './services/authService';
 import extract from './services/extractService';
 import extractDate from './services/extractDateService';
-
-import processGen from './helper/generators/processGen';
-
-import classFilter from './helper/filters/classFilter';
-import dateFilter from './helper/filters/dateFilter';
-
 import formatProcesses from './services/formatProcessesService';
 
 async function robot() {

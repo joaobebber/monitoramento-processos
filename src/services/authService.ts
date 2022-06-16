@@ -2,7 +2,7 @@
 import type { Browser } from "puppeteer";
 
 // Importação de funções
-import login from "../helper/auth/login";
+import login from "../helpers/auth/login";
 
 // Importação de variáveis globais
 import { CPF, PASSWORD } from '../config/auth';

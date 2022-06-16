@@ -1,7 +1,7 @@
 // Função que formata o nome do cliente para ser inserido na rota do site
-function formatClient(client) {
+function formatClient(client: string) {
   // Armazena o nome do cliente formatado
-  let formattedClient;
+  let formattedClient: string;
 
   // Desconstrução do nome do cliente em palavras
   const temp = client.split(' ');
