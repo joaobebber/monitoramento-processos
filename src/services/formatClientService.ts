@@ -9,7 +9,7 @@ function formatClient(client) {
   // Inclusão da primeira palavra no nome formatado seguida de '+'
   formattedClient = temp[0] + '+';
 
-  for (i = 1; i < (temp.length - 1); i++) {
+  for (let i = 1; i < (temp.length - 1); i++) {
     // Inclusão das palavras intermediárias no nome formatado seguida de '+'
     formattedClient = formattedClient + temp[i] + '+';
   }
@@ -21,4 +21,4 @@ function formatClient(client) {
 }
 
 // Exportação da função
-module.exports = { formatClient: formatClient };
+export default formatClient;

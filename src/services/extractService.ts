@@ -2,7 +2,8 @@
 import extractNumberOfPages from '../helper/extracts/extractNumberOfPages';
 import extractProcessId from '../helper/extracts/extractProcessId';
 import extractProcessClass from '../helper/extracts/extractProcessClass';
-const { formatClient } = require("./formatClientService");
+
+import formatClient from './formatClientService';
 
 // Função que realiza a extração dos dados (id e classe) dos processos
 async function extract(browser, BASEURL, CLIENT) {
