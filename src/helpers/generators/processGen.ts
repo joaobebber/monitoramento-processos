@@ -1,6 +1,6 @@
 // Importação dos tipos locais
-import type { IProcess } from '../../types/IProcess';
-import type { IProcessId } from '../../types/IProcessId';
+import type { IProcess } from '../../interfaces/IProcess';
+import type { IProcessId } from '../../interfaces/IProcessId';
 
 // Função que gera um vetor para cada processo contendo suas informações
 function processGen(ids: IProcessId[], classes: string[], client: string) {

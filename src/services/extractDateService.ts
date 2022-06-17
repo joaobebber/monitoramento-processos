@@ -2,7 +2,7 @@
 import type { Browser } from 'puppeteer';
 
 // Importação dos tipos locais
-import type { IProcess } from '../types/IProcess';
+import type { IProcess } from '../interfaces/IProcess';
 
 // Importação de funções
 import extractProcessDate from '../helpers/extracts/extractProcessDate';

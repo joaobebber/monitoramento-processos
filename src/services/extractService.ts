@@ -2,7 +2,7 @@
 import type { Browser } from 'puppeteer';
 
 // Importação dos tipos locais
-import type { IProcessId } from 'src/types/IProcessId';
+import type { IProcessId } from 'src/interfaces/IProcessId';
 
 // Importação de funções
 import extractNumberOfPages from '../helpers/extracts/extractNumberOfPages';

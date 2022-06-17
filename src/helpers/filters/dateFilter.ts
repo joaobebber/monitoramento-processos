@@ -1,5 +1,5 @@
 // Importação dos tipos locais
-import type { IProcess } from '../../types/IProcess';
+import type { IProcess } from '../../interfaces/IProcess';
 
 // Função que filtra os processos por data
 async function dateFilter(

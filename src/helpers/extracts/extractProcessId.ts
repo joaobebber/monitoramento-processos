@@ -2,7 +2,7 @@
 import type { Page } from "puppeteer";
 
 // Importação dos tipos locais
-import type { IProcessId } from '../../types/IProcessId';
+import type { IProcessId } from '../../interfaces/IProcessId';
 
 // Função que obtém o id dos processos
 async function extractProcessId(extractPage: Page) {

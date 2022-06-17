@@ -1,5 +1,5 @@
 // Importação dos tipos locais
-import type { IParamsData } from '../types/IParamsData';
+import type { IParamsData } from '../interfaces/IParamsData';
 
 // Parâmetros da busca
 export const BASEURL = 'https://esaj.tjsp.jus.br';
